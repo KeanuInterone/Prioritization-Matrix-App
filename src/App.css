@@ -1,38 +1,210 @@
-.App {
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --primary-color-light: #007bffa4;
+  --card-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --card-text-color: #ffffff;
+  --border-color: #dee2e6;
+  --completed-bg-color: #d4edda;
+  --button-hover-bg-color: #0056b3;
+  --button-text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.app {
+  padding: 10px;
+}
+
+@media (min-width: 600px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  .app {
+    max-width: 600px;
+  }
+}
+
+.header-title {
+  font-size: 50px;
+  margin-bottom: 0px;
+}
+
+.header-paragraph {
+  font-size: 18px;
+}
+
+.create-task-button {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: var(--card-color);
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 20px;
+  margin-bottom: 80px;
+  cursor: pointer;
+}
+
+.task-card {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.task-input-container {
+  width: 100%;
+  padding-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.task-input-label {
+  color: var(--card-text-color);
+  padding-right: 10px;
+}
+
+.task-input {
+  flex: 1;
+  font-size: 18px;
+  border-radius: 10px;
+  border-width: 0px;
+  height: 30px;
+  padding: 0px 5px;
+}
+
+.task-label-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-label {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--card-text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 5px;
+}
+
+.delete-button {
+  background-color: var(--card-color);
+  border-width: 0;
+  color: var(--card-text-color);
+  font-size: 24px;
+  height: 50px;
+}
+
+.prioritize-button-container {
+  position: fixed;
+  right: 10px;
+  left: 10px;
+  bottom: 10px;
+}
+
+.prioritize-button {
+  width: calc(100%);
+  height: 60px;
+  border-radius: 30px;
+  border-width: 0px;
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.comparison {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.comparison-task-card {
+  width: 150px;
+  height: 150px;
+  background-color: var(--secondary-color);
+  color: var(--card-text-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.counting-indicator {
+  margin-top: 20px;
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ordered-task {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  height: 60px;
+  color: var(--card-text-color);
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.completed.ordered-task {
+  background-color: var(--primary-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.position-info {
+  text-align: end;
+  justify-content: center;  
+  margin-right: 10px;
+  color: var(--border-color);
+}
+
+.position {
+  font-size: 20px;
+}
+
+.task-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wins {
+  font-size: 10px;
+}
+
+.task-info {
+  flex: 1;
+  font-size: 20px;
+}
+
+.complete-button {
+  background-color: var(--background-color);
+  border-width: 0;
+  color: var(--text-color);
+  font-size: 12px;
+  height: 50px;
+  width: 80px;
+  border-radius: 20px;
 }
