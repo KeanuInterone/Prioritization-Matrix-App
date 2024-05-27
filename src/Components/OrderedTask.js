@@ -8,17 +8,16 @@ const OrderedTask = ({ position, task, wins }) => {
     };
 
     return (
-        <div className={`ordered-task ${isCompleted ? 'completed' : ''}`}  onClick={handleComplete}>
+        <div className='ordered-task-container'>
             <div className='position-info'>
                 <div className="position">{position}.)</div>
             </div>
-            <div className="task-info">
-                <div className="task-text">{task.text}</div>
-                <div className="wins">{wins} votes</div>
+            <div className={`ordered-task ${isCompleted ? 'completed' : ''}`} onClick={handleComplete}>
+                <div className="task-info">
+                    <div className="task-text">{task.text}</div>
+                    <div className="wins">{wins} votes</div>
+                </div>
             </div>
-            <button className="complete-button">
-                {isCompleted ? 'Undo' : 'Complete'}
-            </button>
         </div>
     );
 };

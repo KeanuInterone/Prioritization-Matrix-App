@@ -40,24 +40,18 @@ export const useTasks = () => {
     const finalizeTaskComparisons = (comparisons) => {
         // Count wins for each task
         const wins = {};
-        comparisons.forEach(comparison => {
-            if (comparison.winnerTaskId) {
-                wins[comparison.winnerTaskId] = wins[comparison.winnerTaskId] + 1 || 1;
-            } else {
-                wins[comparison.winnerTaskId] = 0;
-            }
+        tasks.forEach(task => {
+            wins[task.id] = 0;
         });
-        // Sort tasks by wins
-        const sortedWins = tasks.slice().sort((a, b) => wins[a.id] - wins[b.id]);
-        // Create ordered tasks
-        let newOrderedTasks = []
-        sortedWins.forEach(win => {
-            // Find task by id
-            const task = tasks.find(task => task.id === win.id);
-            newOrderedTasks.push({
-                task: task,
-                wins: wins[task.id]
-            });
+        comparisons.forEach(comparison => {
+            wins[comparison.winnerTaskId]++;
+        });
+        // Sorted wins list
+        const sortedWins = Object.keys(wins).sort((a, b) => wins[b] - wins[a]);
+        // Create ordered tasks list
+        const newOrderedTasks = sortedWins.map((taskId) => {
+            const task = tasks.find(task => task.id === parseInt(taskId));
+            return { task, wins: wins[taskId] };
         });
         setOrderedTasks(newOrderedTasks);
     };

@@ -158,7 +158,13 @@ body {
   text-align: center;
 }
 
+.ordered-task-container {
+  display: flex;
+  /* align-items: center; */
+}
+
 .ordered-task {
+  flex: 1;
   display: flex;
   align-items: center;
   background-color: var(--secondary-color);
@@ -178,7 +184,8 @@ body {
   text-align: end;
   justify-content: center;  
   margin-right: 10px;
-  color: var(--border-color);
+  margin-top: 20px;
+  color: var(--text-color);
 }
 
 .position {
